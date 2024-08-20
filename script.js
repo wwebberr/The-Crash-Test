@@ -1,4 +1,4 @@
-const numCubes = 1000; // Default number of cubes
+const numCubes = 10000; // Default number of cubes
 const cubes = [];
 const colors = [
     'rgb(255, 0, 0)',    // Neon Red
