@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    transition: background-color 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.cube {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 0, 0); /* Default color */
+    transition: background-color 0.5s;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Neon effect */
+}
