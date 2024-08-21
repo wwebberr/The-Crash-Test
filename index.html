@@ -3,21 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon RGB Bouncing Cubes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Random Window Opener with Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .countdown {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <script src="script.js"></script>
+    <h1>Random Window Opener with Countdown</h1>
+    <button onclick="startCountdown()">Start Countdown</button>
+    <div class="countdown" id="countdown"></div>
 
     <script>
-        window.onload = function() {
-            setTimeout(function() {
-                while (true) {
-                    window.open("https://wwebberr.github.io/The-Crash-Test/", '_blank', 'width=800,height=600');
+        let countdownInterval;
+        let openingInterval;
+        
+        function startCountdown() {
+            let countdown = 10; // Countdown duration in seconds
+            const countdownElement = document.getElementById('countdown');
+            
+            countdownElement.textContent = `Starting in ${countdown} seconds...`;
+
+            countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = `Starting in ${countdown} seconds...`;
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "Opening windows...";
+                    startOpeningWindows();
                 }
-            }, 1000); // Delay added to ensure everything else loads first
-        };
+            }, 1000);
+        }
+
+        function startOpeningWindows() {
+            openingInterval = setInterval(() => {
+                const width = Math.floor(Math.random() * (800 - 300 + 1)) + 300; // Random width between 300 and 800
+                const height = Math.floor(Math.random() * (600 - 200 + 1)) + 200; // Random height between 200 and 600
+                const left = Math.floor(Math.random() * (window.screen.width - width)); // Random horizontal position
+                const top = Math.floor(Math.random() * (window.screen.height - height)); // Random vertical position
+
+                window.open('https://wwebberr.github.io/The-Crash-Test/', '_blank', `width=${width},height=${height},left=${left},top=${top}`);
+
+            }, 1000); // Adjust this interval as needed
+        }
     </script>
 
 </body>
